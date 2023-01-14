@@ -15,5 +15,5 @@ for (int i = 0; i < 2; i++)
     inpValue = Console.ReadLine();
     numbers[i] = Convert.ToInt32(inpValue);
 }
-Console.WriteLine($"Максимальное число из введённых: {numbers.Max()}");
-
+Console.WriteLine($"Большее число из введённых: {numbers.Max()}");
+Console.WriteLine($"Меньшее число из введённых: {numbers.Min()}");
