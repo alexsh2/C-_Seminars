@@ -9,11 +9,12 @@ int rank = 3;               // Разрядность вводимого чис�
 int number = -1;            // Вводимое число
 int sequenceNumber = 2;     // Порядковый номер искомой цифры
 int digit = 0;              // Искомая цифра
+bool flag = false;          // Индикатор результата проверки введённого значения
 
-while (number == -1)
+while (flag == false)
 {
     Console.Write("Введите трёхзначное число: ");
-    number = IntInput(rank);
+    number = IntInput(out flag, rank);
 }
 
 digit = SelectDigit(number, rank, sequenceNumber);
@@ -21,14 +22,16 @@ Console.WriteLine($"{sequenceNumber}-я цифра числа: {digit}");
 
 
 // Валидация разрядности введённого числа
-int IntInput(int n = 0)     
+int IntInput(out bool flag, int n = 0)     
 {
+    flag = true;
     bool isNumber = false;
     int num = 0;
     string? inp = Console.ReadLine();
 
     if (isNumber = int.TryParse(inp, out num))
     {
+        num = Math.Abs(num);
         int temp = num;
         int count = 0;
 
@@ -43,14 +46,14 @@ int IntInput(int n = 0)
             if (count > n || count < n)
             {
                 Console.WriteLine($"Разрядность введённого числа {num} отличается от запрашиваемой.");
-                num = -1;
+                flag = false;
             }
         }
     }
     else
     {
         Console.WriteLine("Необходимо ввести число!");
-        num = -1;
+        flag = false;
     }
 
     return num;
