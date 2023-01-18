@@ -3,7 +3,7 @@
     5 -> 2, 4
     8 -> 2, 4, 6, 8 */
 
-string inpValue;
+string? inpValue;
 int value, temp;
 int evenNumbers = 0;
 List<int> result = new List<int>();
