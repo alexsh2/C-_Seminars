@@ -16,9 +16,9 @@ while (number == -1)
     number = IntInput(rank);
 }
 
-
 digit = SelectDigit(number, rank, sequenceNumber);
 Console.WriteLine($"{sequenceNumber}-я цифра числа: {digit}");
+
 
 // Валидация разрядности введённого числа
 int IntInput(int n = 0)     
