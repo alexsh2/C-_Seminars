@@ -6,7 +6,7 @@
 Console.Clear();
 
 int rank = 3;               // Разрядность вводимого числа
-int number = -1;            // Вводимое число
+int number = 0;             // Вводимое число
 int sequenceNumber = 2;     // Порядковый номер искомой цифры
 int digit = 0;              // Искомая цифра
 bool flag = false;          // Индикатор результата проверки введённого значения
@@ -17,12 +17,12 @@ while (flag == false)
     number = IntInput(out flag, rank);
 }
 
-digit = SelectDigit(number, rank, sequenceNumber);
+digit = SelectDigit(number, sequenceNumber, rank);
 Console.WriteLine($"{sequenceNumber}-я цифра числа: {digit}");
 
 
 // Валидация разрядности введённого числа
-int IntInput(out bool flag, int n = 0)     
+int IntInput(out bool flag, int n = 0)
 {
     flag = true;
     bool isNumber = false;
@@ -60,7 +60,7 @@ int IntInput(out bool flag, int n = 0)
 }
 
 // Поиск запрашиваемой цифры
-int SelectDigit(int num, int rank, int seq)
+int SelectDigit(int num, int seq, int cnt)
 {
     int[] digits = new int[rank];
     int offset = rank - 1;
@@ -72,5 +72,4 @@ int SelectDigit(int num, int rank, int seq)
     }
 
     return digits[seq - 1];
-
 }
