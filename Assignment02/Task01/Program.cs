@@ -5,28 +5,23 @@
 
 Console.Clear();
 
-int rank = 3;
-int number = -1;
-int index = 2;
-int digit = 0;
+int rank = 3;               // Разрядность вводимого числа
+int number = -1;            // Вводимое число
+int sequenceNumber = 2;     // Порядковый номер искомой цифры
+int digit = 0;              // Искомая цифра
 
 while (number == -1)
 {
-    StrInput("Введите трёхзначное число: ");
+    Console.Write("Введите трёхзначное число: ");
     number = IntInput(rank);
 }
 
-digit = SelectDigit(number, rank, index);
-Console.WriteLine($"{index}-я цифра числа - {digit}");
 
+digit = SelectDigit(number, rank, sequenceNumber);
+Console.WriteLine($"{sequenceNumber}-я цифра числа: {digit}");
 
-
-void StrInput(string msg)   // Ввод сообщения
-{
-    Console.Write(msg);
-}
-
-int IntInput(int n = 0)     // Валидация разрядности введённого числа
+// Валидация разрядности введённого числа
+int IntInput(int n = 0)     
 {
     bool isNumber = false;
     int num = 0;
@@ -61,16 +56,18 @@ int IntInput(int n = 0)     // Валидация разрядности вве�
     return num;
 }
 
-int SelectDigit(int num, int rank, int index)
+// Поиск запрашиваемой цифры
+int SelectDigit(int num, int rank, int seq)
 {
     int[] digits = new int[rank];
+    int offset = rank - 1;
 
     for (int i = 0; i < rank; i++)
     {
-        digits[rank - 1 - i] = num % 10;
+        digits[offset - i] = num % 10;
         num = num / 10;
     }
 
-    return digits[index - 1];
+    return digits[seq - 1];
 
 }
