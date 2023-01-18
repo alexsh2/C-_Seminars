@@ -4,7 +4,7 @@
     a = 2 b = 10 -> max = 10
     a = -9 b = -3 -> max = -3 */
 
-string inpValue;
+string? inpValue;
 int[] numbers = new int[2];
 string[] seq = new string[] { "первое", "второе" };
 
