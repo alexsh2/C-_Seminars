@@ -5,16 +5,15 @@
 Console.Clear();
 
 
-string inpMessage = "Введите целое число: ";
+string inpMessage = "Введите целое число";
 
 GetCubeTable(IntInput(inpMessage));
 
 // Ввод и конвертация числа
 int IntInput(string msg)
 {
-    int num = 0;
-    Console.Write(msg);
-    num = Convert.ToInt32(Console.ReadLine());
+    Console.Write($"{msg}: ");
+    int num = Convert.ToInt32(Console.ReadLine());
     return num;
 }
 
