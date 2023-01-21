@@ -12,7 +12,7 @@ GetCubeTable(IntInput(inpMessage));
 // Ввод и конвертация числа
 int IntInput(string msg)
 {
-    Console.Write($"{msg}: ");
+    Console.Write($"{msg}:");
     int num = Convert.ToInt32(Console.ReadLine());
     return num;
 }

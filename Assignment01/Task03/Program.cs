@@ -4,7 +4,7 @@
     -3 -> нет
     7 -> нет */
 
-string inpValue;
+string? inpValue;
 int value;
 
 Console.Write($"Введите целое число: ");

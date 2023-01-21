@@ -4,7 +4,7 @@
     44 5 78 -> 78
     22 3 9 -> 22 */
 
-string inpValue;
+string? inpValue;
 int[] numbers = new int[3];
 string[] seq = new string[] { "первое", "второе", "третье" };
 
