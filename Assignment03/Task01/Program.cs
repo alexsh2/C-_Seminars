@@ -6,9 +6,8 @@
 Console.Clear();
 
 string inpMessage = "Введите целое число";
-long inpLength = 0;
 
-if (IsNumPalindrome(longInput(inpMessage, out inpLength), inpLength))
+if (IsNumPalindrome(longInput(inpMessage)))
 {
     Console.WriteLine("Введённое число является палиндромом");
 }
@@ -19,18 +18,16 @@ else
 
 
 // Ввод и конвертация числа
-long longInput(string msg, out long len)
+long longInput(string msg)
 {
     Console.Write($"{msg}: ");
-    string? inp = Console.ReadLine();
-    len = inp.Length;
-    long num = Convert.ToInt64(inp);
+    long num = Convert.ToInt64(Console.ReadLine());
     return num;
 }
 
 
 // Проверка введённого числа на палиндромность
-bool IsNumPalindrome(long num, long len)
+bool IsNumPalindrome(long num)
 {
     if (num != 0)
     {
@@ -44,7 +41,6 @@ bool IsNumPalindrome(long num, long len)
         }
 
         temp = num;
-        long ind = len - count;
         long rightDigit = temp % 10;
         long leftDigit = num / Convert.ToInt64(Math.Pow(10, --count));
         long c = count / 2;
@@ -61,14 +57,6 @@ bool IsNumPalindrome(long num, long len)
             }
             else
             {
-                if (ind > 0)        // Проверка разницы между len и count: если она есть, значит потерян(ы) лидирующий(ие) 0
-                {
-                    temp = temp / 10;
-                    rightDigit = temp % 10;
-                    ind--;
-                    continue;
-                }
-
                 return false;
             }
         }
