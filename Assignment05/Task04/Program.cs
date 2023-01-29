@@ -8,7 +8,8 @@ Console.Clear();
 
 int[] intArray = CreateIntArray();
 PrintArray(intArray);
-Console.WriteLine($"Второе максимальное значение среди элементов массива: {SecondMax(intArray)}");
+Console.WriteLine($"Максимальное значение среди элементов массива: {SecondMax(intArray).Item1}");
+Console.WriteLine($"Второе максимальное значение среди элементов массива: {SecondMax(intArray).Item2}");
 
 
 // Создание массива случайных чисел
@@ -25,7 +26,6 @@ int[] CreateIntArray()
     {
         array[i] = rnd.Next(min, max);
     }
-
 
     return array;
 }
@@ -57,38 +57,32 @@ void PrintArray(int[] array)
 
 
 // Определение второго максимального значения среди элементов массива
-int SecondMax(int[] array)
+(int, int) SecondMax(int[] array)
 {
     int max = array[0];
-    int max2 = 0;
+    int max2 = array[0];
+
 
     for (int i = 1; i < array.Length; i++)
     {
-        if (array[i] > max)
-        {
-            max = array[i];
-        }
-        else if (array[i] == max)
+        if (array[i] == max)
         {
             continue;
         }
-        else
+        else if (array[i] > max)
+        {
+            max2 = max;
+            max = array[i];
+        }
+        else if (array[i] > max2)
+        {
+            max2 = array[i];
+        }
+        else if (max2 == max)
         {
             max2 = array[i];
         }
     }
 
-
-    foreach (var item in array)
-    {
-        if (item != max)
-        {
-            if (item > max2)
-            {
-                max2 = item;
-            }
-        }
-    }
-
-    return max2;
+    return (max, max2);
 }
