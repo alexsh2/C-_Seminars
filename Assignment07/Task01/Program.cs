@@ -6,7 +6,7 @@
 
 Console.Clear();
 
-Print2DArray(Create2DArray());
+Print2DArray(Create2DArray(), "Сгенерирован двумерный массив случайных вещественных чисел: ");
 
 double[,] Create2DArray(int rows = 3, int columns = 4)
 {
@@ -25,9 +25,9 @@ double[,] Create2DArray(int rows = 3, int columns = 4)
     return array;
 }
 
-void Print2DArray(double[,] array)
+void Print2DArray(double[,] array, string msg)
 {
-    Console.WriteLine("Сгенерирован двумерный массив случайных вещественных чисел: ");
+    Console.WriteLine(msg);
     for (int i = 0; i < array.GetLength(0); i++)
     {
         Console.WriteLine();
