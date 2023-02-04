@@ -9,13 +9,13 @@
 
 Console.Clear();
 
-int[,] TwoDArray = Create2DArray();
-Print2DArray(TwoDArray, "Сгенерирован двумерный массив случайных чисел");
+int[,] twoDArray = Create2DArray();
+Print2DArray(twoDArray, "Сгенерирован двумерный массив случайных чисел");
 Console.WriteLine();
 
 int row = InputItemPosition("Введите номер строки");
 int column = InputItemPosition("Введите номер колонки");
-(bool yes, int item) = GetItem(TwoDArray, row, column);
+(bool yes, int item) = GetItem(twoDArray, row, column);
 
 if (yes)
 {
