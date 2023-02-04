@@ -21,8 +21,8 @@ int[] CreateIntArray()
     Random rnd = new Random();
     int size = rnd.Next(6, 13);
     int min = rnd.Next(-100, -90);
-    //int max = rnd.Next(80, 100);
-    int max = rnd.Next(-10, -5);      // Для тестирования отрицательных значений
+    int max = rnd.Next(80, 100);
+    //int max = rnd.Next(-10, -5);      // Для тестирования отрицательных значений
 
     int[] array = new int[size];
 
