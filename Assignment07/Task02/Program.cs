@@ -66,18 +66,13 @@ int InputItemPosition(string msg)
 }
 
 
-(bool, int) GetItem(int[,] array, int row, int column)
+(bool, int) GetItem(int[,] array, int Row, int Column)
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    int number = -1;
+
+    if (row - 1 < array.GetLength(0) && column - 1 < array.GetLength(1))
     {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            if (i == row && j == column)
-            {
-                int number = array[i - 1, j - 1];
-                return (true, number);
-            }
-        }
+        return (true, number = array[row - 1, column - 1]);
     }
-    return (false, -1);
+    return (false, number);
 }
