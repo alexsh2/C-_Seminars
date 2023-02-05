@@ -58,17 +58,13 @@ double[] CalculateColumnAverage(int [,] array)
 {
     double[] averages = new double[array.GetLength(1)];
 
-    for (int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(1); i++)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(0); j++)
         {
-            averages[j] += array[i,j];
-
-            if(i == array.GetLength(0) - 1)
-            {
-                averages[j] /= array.GetLength(0);
-            }
-        }  
+            averages[i] += array[j,i];
+        }
+        averages[i] /= array.GetLength(0);
     }
 
     return averages;
