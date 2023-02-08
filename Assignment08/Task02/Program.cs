@@ -10,7 +10,10 @@
 
 Console.Clear();
 
-int[,] twoDArray = Create2DArray();
+const int rows = 6;
+const int columns = 6;
+
+int[,] twoDArray = Create2DArray(rows, columns);
 
 Print2DArray(twoDArray);
 Console.WriteLine();
