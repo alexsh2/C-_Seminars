@@ -32,7 +32,7 @@ void GetEvenNaturalNumbers(int numberM, int numberN)
     if (numberM > numberN)
     {
         Console.WriteLine();
-        Environment.Exit(0);
+        return;
     }
 
     if (numberM % 2 != 0)
